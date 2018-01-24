@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.sansan.ssh.model">
+    <class name="com.sansan.ssh.model.User" table="student">
+        <id name="userID" type="java.lang.Integer">
+            <column name="userID"/>
+            <generator class="native"/>
+        </id>
+        <property name="userName" type="java.lang.String">
+            <column name="userName">
+                <comment>名字</comment>
+            </column>
+        </property>
+        <property name="passWord" type="java.lang.String">
+            <column name="passWord">
+                <comment>密码</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>
