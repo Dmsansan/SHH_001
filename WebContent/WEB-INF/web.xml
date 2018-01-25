@@ -4,22 +4,23 @@
          id="WebApp_ID" version="3.0">
     <display-name>SSH_001</display-name>
     <welcome-file-list>
-        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>login.jsp</welcome-file>
     </welcome-file-list>
     <!-- spring -->
-    <context-param>
+    <!-- <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>classpath:applicationContext.xml</param-value>
-    </context-param>
+    </context-param> -->
     <!-- spring监听器 -->
-    <listener>
+    <!-- <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-    </listener>
+    </listener> -->
     <!-- struts拦截器 -->
     <filter>
         <filter-name>struts2</filter-name>
         <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
     </filter>
+    <!-- 配置Struts拦截所有服务所有请求 -->
     <filter-mapping>
         <filter-name>struts2</filter-name>
         <url-pattern>/*</url-pattern>
@@ -42,7 +43,7 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
     <!--为解决lazy=true在jsp页面上遍历数据，此时相关类（one2many）再查找，没有session的情况 -->
-    <filter>
+    <!--<filter>
         <filter-name>hibernateFilter</filter-name>
         <filter-class>
             org.springframework.orm.hibernate4.support.OpenSessionInViewFilter
@@ -55,5 +56,5 @@
     <filter-mapping>
         <filter-name>hibernateFilter</filter-name>
         <url-pattern>/*</url-pattern>
-    </filter-mapping>
+    </filter-mapping>-->
 </web-app>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<!-- 上面的头，注意版本，从样例里复制过来 showcase.war\WEB-INF\src\java\struts.xml -->
+
+<struts>
+	
+    <!-- 第1步：先定义一个命名明空间namespace="/login"用于区别不同Action，需要添加到url中 采用注解不需配置-->
+    
+    <package name="index" namespace="/" extends="struts-default">
+         <!-- 定义Action -->
+         <action name="register" class="com.sansan.ssh.action.UserAction" method="register">
+             <result name="register">/jsp/register.jsp</result>
+         </action>    
+    </package>
+	
+	<package name="user" namespace="/user" extends="json-default">
+         <!-- 定义Action -->
+         <action name="login" class="com.sansan.ssh.action.UserAction" method="login">
+             <result type="json">model</result>
+         </action>    
+    </package>
+    
+</struts>

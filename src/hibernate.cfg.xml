@@ -16,5 +16,6 @@
         
         <!-- 关联映射文件 -->
         <mapping resource="com/sansan/ssh/mapper/User.hbm.xml"/>
+        
       </session-factory>
 </hibernate-configuration>

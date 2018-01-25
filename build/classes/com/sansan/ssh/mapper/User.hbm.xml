@@ -6,7 +6,7 @@
     <class name="com.sansan.ssh.model.User" table="student">
         <id name="userID" type="java.lang.Integer">
             <column name="userID"/>
-            <generator class="native"/>
+            <generator class="native"/><!-- 自增长 -->
         </id>
         <property name="userName" type="java.lang.String">
             <column name="userName">
