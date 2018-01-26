@@ -1,7 +1,6 @@
 package com.sansan.ssh.dao;
 
-import org.hibernate.Session;
-
+import org.hibernate.SessionFactory;
 import org.hibernate.HibernateException;
 
 /**
@@ -13,7 +12,7 @@ public interface BaseDao {
 	
 	public void saveObject(Object object) throws HibernateException;
 	
-	public Session getSession();
+	public SessionFactory getSessionFactory();
 	
-	public void setSession(Session session);
+	public void setSessionFactory(SessionFactory sessionFactory);
 }

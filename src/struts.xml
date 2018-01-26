@@ -19,7 +19,10 @@
          <!-- 定义Action -->
          <action name="login" class="com.sansan.ssh.action.UserAction" method="login">
              <result type="json">model</result>
-         </action>    
+         </action>  
+         <action name="findUser" class="com.sansan.ssh.action.UserAction" method="findUser">
+             <result type="json">model</result>
+         </action>  
     </package>
     
 </struts>
