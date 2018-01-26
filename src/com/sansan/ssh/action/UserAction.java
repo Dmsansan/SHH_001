@@ -1,6 +1,5 @@
 package com.sansan.ssh.action;
 
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -13,6 +12,7 @@ public class UserAction extends ActionSupport{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	//private UserServcie userService;
 	
 	private Map<String, Object> model;
 	

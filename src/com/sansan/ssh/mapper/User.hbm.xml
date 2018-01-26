@@ -1,22 +1,18 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-mapping PUBLIC
-        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<hibernate-mapping package="com.sansan.ssh.model">
-    <class name="com.sansan.ssh.model.User" table="student">
-        <id name="userID" type="java.lang.Integer">
-            <column name="userID"/>
-            <generator class="native"/><!-- 自增长 -->
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-1-26 8:49:38 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.sansan.ssh.model.User" table="USER">
+        <id name="userID" type="int">
+            <column name="USERID" />
+            <generator class="assigned" />
         </id>
         <property name="userName" type="java.lang.String">
-            <column name="userName">
-                <comment>名字</comment>
-            </column>
+            <column name="USERNAME" />
         </property>
         <property name="passWord" type="java.lang.String">
-            <column name="passWord">
-                <comment>密码</comment>
-            </column>
+            <column name="PASSWORD" />
         </property>
     </class>
 </hibernate-mapping>
