@@ -31,14 +31,15 @@
     </bean>
 	
     <!--  sessionFactory配置   -->
-    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
         <property name="dataSource" ref="dataSource"></property>
          <!--不要缺少classpath，否则在整合Struts2时候会找不到映射文件-->
-         <property name="mappingResources">
+  			<!-- *.hbm.xml映射在此，不需要再在hibernate.cfg.xml文件中配置 -->
+        <!-- <property name="mappingResources">
             <list>
                 <value>com/sansan/ssh/mapper/User.hbm.xml</value>
             </list>
-        </property>
+        </property> -->
         
         <property name="hibernateProperties">
             <props>
@@ -56,7 +57,7 @@
     
     
     <!--spring对hibernate的事务管理  -->
-    <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+    <bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
         <property name="sessionFactory" ref="sessionFactory"></property>
     </bean>
     <aop:config proxy-target-class="true">
@@ -74,22 +75,22 @@
         </tx:attributes>
     </tx:advice>
     
-    <!-- UserBean配置 -->
+    <!-- UserBean配置spring bean命名规则	-->
     <!-- 第一种方法：Dao实现类继承HibernateDaoSupport类的配置 -->
-    <bean id="userDaoImpl" class="com.sansan.ssh.daoimpl.UserDaoImpl">
-        <property name="sessionFactory" ref="sessionFactory"></property>
+    <bean id="userDao" class="com.sansan.ssh.daoimpl.UserDaoImpl">
+       
     </bean>
     <!-- 第二种方法：在dao类中定义一个模板对象 <bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate" 
         > <property name="sessionFactory" ref="sessionFactory" ></property> </bean> 
         <bean id="userDaoImpl" class="com.dao.impl.UsersDaoImpl"> <property name="hibernateTemplate" 
         ref="hibernateTemplate"></property> </bean> -->
 
-    <bean id="userServiceImpl" class="com.sansan.ssh.service.impl.UserServiceImpl">
-        <property name="userDaoImpl" ref="userDaoImpl" />
+    <bean id="userService" class="com.sansan.ssh.service.impl.UserServiceImpl">
+       
     </bean>
-
-    <bean id="userSturts" class="com.sansan.ssh.action.UserAction">
-        <property name="userServiceImpl" ref="userServiceImpl" />
+    
+    <bean id="userAction" class="com.sansan.ssh.action.UserAction">
+        <property name="userService" ref="userService" />
     </bean>
     
 </beans>
