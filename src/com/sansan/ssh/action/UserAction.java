@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.struts2.json.annotations.JSON;
+
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionSupport;
 import com.sansan.ssh.model.User;
@@ -12,7 +14,7 @@ import com.sansan.ssh.service.UserService;
 
 public class UserAction extends ActionSupport{
 	/**
-	 *ÐòÁÐºÅID£¬ÓÃÓÚJVM±àÒëÊ±µÄ°æ±¾¶ÔÓ¦£¬·´±àÒëÇé¿öÏÂ¿ÉÒÔ¶Ô±ÈÑ§ÀúºÃIDÊÇ·ñÒ»ÖÂÅÐ¶Ï·´±àÒëÇé¿ö 
+	 *ï¿½ï¿½ï¿½Ðºï¿½IDï¿½ï¿½ï¿½ï¿½ï¿½ï¿½JVMï¿½ï¿½ï¿½ï¿½Ê±ï¿½Ä°æ±¾ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¿ï¿½ï¿½Ô¶Ô±ï¿½Ñ§ï¿½ï¿½ï¿½ï¿½IDï¿½Ç·ï¿½Ò»ï¿½ï¿½ï¿½Ð¶Ï·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 	 */
 	private static final long serialVersionUID = 1L;
 	
@@ -25,7 +27,7 @@ public class UserAction extends ActionSupport{
 	}
 	
 	/**
-	 * Ìø×ª×¢²áÒ³Ãæ
+	 * ï¿½ï¿½×ª×¢ï¿½ï¿½Ò³ï¿½ï¿½
 	 * @return
 	 */
 	public String register(){
@@ -33,7 +35,7 @@ public class UserAction extends ActionSupport{
 	}
 	
 	/**
-	 * ·µ»ØjsonÊý¾Ý²âÊÔ
+	 * ï¿½ï¿½ï¿½ï¿½jsonï¿½ï¿½ï¿½Ý²ï¿½ï¿½ï¿½
 	 * @return
 	 */
 	public String login(){
@@ -41,13 +43,16 @@ public class UserAction extends ActionSupport{
 		model.put("key", "13123");
 		return Action.SUCCESS;
 	}
+	
+	
 	public String findUser(){
 		System.out.print("+++++++"+"UserAction"+"\n");
-		userService.getUserInfo();
-		return NONE;
-//		List<User> user = userService.getUserInfo();
-//		model.put("data", user);
-//		return Action.SUCCESS;
+		model= new HashMap<String,Object>();
+//		userService.getUserInfo();
+//		return NONE;
+		List<User> user = userService.getUserInfo();
+		model.put("data",user);
+		return Action.SUCCESS;
 	}
 	
 	public Map<String, Object> getModel() {
@@ -57,14 +62,15 @@ public class UserAction extends ActionSupport{
 	public void setModel(Map<String, Object> model) {
 		this.model = model;
 	}
-	
-	
-	public UserService getUserService() {
-		   return userService;
-	}
-		  
+//
+//	public UserService getUserService() {
+//		return userService;
+//	}
+
 	public void setUserService(UserService userService) {
-		          this.userService = userService;
-    }
+		this.userService = userService;
+	}
+	
+	
 	
 }
